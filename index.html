@@ -9,10 +9,6 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- dayjs CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.7/dayjs.min.js" integrity="sha512-kZ+x2gdehn6OZMWZSp3Vt5R+v9hQTYEATQwaUfWquhxbvNVAy6IRtYs7asdyxKUTqG0I5ZqBqnzcBrpnHJCAGw==" crossorigin="anonymous"></script>
-    <!-- JQueryCDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- handlebarsCDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.js" integrity="sha512-MQkEjxbZvzs4TX8ES4/tTIyaYdtDlJzVocnPo0GoysTR0jCmNg0P2is7uqpCoWxmoS9X84CDVzuWgZD/R/Q2oQ==" crossorigin="anonymous"></script>
     <!-- vueCDN -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <!-- axios CDN -->
@@ -21,10 +17,53 @@
   </head>
   <body>
 
-    <div id="root">
-      prova cambio nome cartella
-    </div>
+    <section id="root">
 
+      <header id="header_boolflix">
+
+        <div class="logo">
+          <h1>BOOLFLIX</h1>
+        </div>
+
+        <div class="input_search">
+          <input type="text" name="" value="" placeholder="Ricerca per titolo">
+          <button type="button" name="button">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+
+      </header>
+
+      <main id="main_boolflix">
+        <div class="card_container">
+          <!-- <a href="#"> -->
+            <div class="poster_container">
+              <img src="https://aforismi.meglio.it/img/film/ritorno-al-futuro.jpg" alt="Locandina">
+              <div class="layover_container">
+                <div>
+                  <h4>Titolo: <span>Ritorno al futuro</span></h4>
+                </div>
+                <div>
+                  <h4>Titolo originale: <span>Back to the future</span></h4>
+                </div>
+                <div>
+                  <h4>Voto: </h4>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <div>
+                  <h4>Overview: <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita quibusdam, vero, praesentium harum eaque iusto architecto hic qui corrupti, illum earum asperiores minima. Animi, error.</span></h4>
+                </div>
+              </div>
+            </div>
+          <!-- </a> -->
+        </div>
+      </main>
+
+    </section>
 
     <!-- codice js esterno -->
     <script src="js/script.js" charset="utf-8"></script>
