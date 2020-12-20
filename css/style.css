@@ -86,8 +86,8 @@ span{
   padding: 30px;
 }
 .card_container{
-  /* background: white; */
-  padding-right: 15px;
+  /* width: calc(100% / 5); */
+  padding: 0 15px 15px 0;
 }
 .poster_container{
   background: black;
@@ -120,4 +120,5 @@ span{
 .poster_container:hover .layover_container {
   opacity: 1;
   cursor: pointer;
+  overflow-y: scroll;
 }
