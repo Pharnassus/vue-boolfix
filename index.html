@@ -26,9 +26,9 @@
         </div>
 
         <div class="input_search">
-          <input type="text" name="" value="" placeholder="Ricerca per titolo"
+          <input type="text" name="" value="" placeholder="Ricerca in query di fantozzi"
                 v-model="searchFilm"
-                >
+                @keydown.enter="filterFilms">
           <button @click="filterFilms" type="button" name="button">
             <i class="fas fa-search"></i>
           </button>
@@ -36,8 +36,12 @@
 
       </header>
 
+
       <main id="main_boolflix">
-        <div class="card_container" v-for="(film, index) in cardFilms">
+
+        <div class="card_container"
+              v-for="(film, index) in cardFilms"
+              v-if="film.visible == true">
           <!-- <a href="#"> -->
             <div class="poster_container">
               <img :src="'https://image.tmdb.org/t/p/w220_and_h330_face' + film.poster_path" alt="Locandina">

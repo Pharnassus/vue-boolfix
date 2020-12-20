@@ -33,20 +33,23 @@ var app = new Vue(
     data: {
       cardFilms: [],
       filmIndex: 0,
-      searchFilm: '',
+      searchFilm: null,
     },
     methods: {
+
       filterFilms: function() {
-        // console.log('filter');
+
         this.cardFilms.forEach(
           (item, i) => {
-            // console.log(item.title);
-            if (!item.title.toLowerCase().includes(this.searchFilm.toLowerCase())) {
-              item.poster_path = '';
+
+            let visible = false;
+            if (item.title.toLowerCase().includes(this.searchFilm.toLowerCase())) {
+              this.cardFilms.push(visible);
+              item.visible = true;
             }
-            // console.log(this.cardFilms);
         });
 
+        this.searchFilm = '';
       }
     },
     mounted: function() {
@@ -63,7 +66,6 @@ var app = new Vue(
         })
         .then( function(element) {
           self.cardFilms = element.data.results;
-          // console.log(self.cardFilms);
       });
     },
   },
