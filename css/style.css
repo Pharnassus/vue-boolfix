@@ -68,6 +68,14 @@ span{
   width: 50%;
   height: 50px;
 }
+button.delete_research{
+  height: 30px;
+  width: 50px;
+  border: 2px solid grey;
+  border-left: none;
+  cursor: pointer;
+  color: red;
+}
 .input_search{
   /* background: white; */
   /* border: 1px solid red; */
@@ -105,7 +113,7 @@ span{
 }
 .poster_container i{
   color: orange;
-  font-size: 20px;
+  font-size: 15px;
 }
 .layover_container {
   position: absolute;

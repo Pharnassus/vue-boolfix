@@ -32,6 +32,7 @@ var app = new Vue(
     el: '#root',
     data: {
       cardFilms: [],
+      // cardFilmsMap: [],
       filmIndex: 0,
       searchFilm: null,
     },
@@ -43,14 +44,52 @@ var app = new Vue(
           (item, i) => {
 
             let visible = false;
+            this.cardFilms.push(visible);
+
             if (item.title.toLowerCase().includes(this.searchFilm.toLowerCase())) {
-              this.cardFilms.push(visible);
+
+              //sezione ricerca film
               item.visible = true;
+
+              //sezione stelle
+              let numeroStelle = item.vote_average;
+              let restoVoto = 0;
+
+              if (numeroStelle % 2 == 0) {
+                numeroStelle = (numeroStelle / 2);
+                item.vote_average = numeroStelle;
+              } else {
+                restoVoto = (numeroStelle % 2) / 2;
+                numeroStelle = (numeroStelle / 2) - restoVoto;
+                item.vote_average = numeroStelle;
+              }
             }
+
         });
+        // console.log(this.cardFilms);
 
         this.searchFilm = '';
-      }
+      },
+
+      clearPage: function() {
+        this.cardFilms = null;
+
+        var self = this;
+
+        axios
+          .get('https://api.themoviedb.org/3/search/movie', {
+            params: {
+              api_key: 'bd77a6f388cd1f04e0f903f3b8a99556',
+              query: 'fantozzi',
+              language: 'it-IT'
+            }
+          })
+          .then( function(element) {
+            self.cardFilms = element.data.results;
+
+        });
+
+      },
     },
     mounted: function() {
 
@@ -66,6 +105,7 @@ var app = new Vue(
         })
         .then( function(element) {
           self.cardFilms = element.data.results;
+
       });
     },
   },
