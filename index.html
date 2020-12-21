@@ -27,7 +27,7 @@
 
         <div class="input_search">
 
-          <input type="text" name="" value="" placeholder="Ricerca in film di fantozzi oppure in all"
+          <input type="text" name="" value="" placeholder="Ricerca in eroe oppure @ per all"
                 v-model="searchFilm"
                 @keydown.enter="filterFilms">
           <button @click="filterFilms" type="button" name="button">
@@ -44,10 +44,51 @@
       </header>
 
 
+
+
       <main id="main_boolflix">
 
         <div class="card_container"
               v-for="(film, index) in cardFilms"
+              v-if="film.visible == true">
+          <!-- <a href="#"> -->
+            <div class="poster_container">
+              <img :src="'https://image.tmdb.org/t/p/w220_and_h330_face' + film.poster_path" alt="Locandina">
+              <div class="layover_container">
+                <div>
+                  <h4>Titolo: <span>{{film.title}}</span></h4>
+                </div>
+                <div>
+                  <h4>Titolo originale: <span>{{film.original_title}}</span></h4>
+                </div>
+                <div>
+                  <h4>Lingua originale: <span><img :src="film.bandiera" alt=""></span></h4>
+                </div>
+                <div>
+                  <h4>Voto:
+                  <span v-if="film.vote_average >= 1"><i class="fas fa-star"></i></span>
+                  <span v-else><i class="far fa-star"></i></span>
+                  <span v-if="film.vote_average >= 2"><i class="fas fa-star"></i></span>
+                  <span v-else><i class="far fa-star"></i></span>
+                  <span v-if="film.vote_average >= 3"><i class="fas fa-star"></i></span>
+                  <span v-else><i class="far fa-star"></i></span>
+                  <span v-if="film.vote_average >= 4"><i class="fas fa-star"></i></span>
+                  <span v-else><i class="far fa-star"></i></span>
+                  <span v-if="film.vote_average >= 5"><i class="fas fa-star"></i></span>
+                  <span v-else><i class="far fa-star"></i></span>
+                </h4>
+
+                </div>
+                <div>
+                  <h4>Overview: <span>{{film.overview}}</span></h4>
+                </div>
+              </div>
+            </div>
+          <!-- </a> -->
+        </div>
+
+        <div class="card_container"
+              v-for="(film, index) in cardTvSeries"
               v-if="film.visible == true">
           <!-- <a href="#"> -->
             <div class="poster_container">

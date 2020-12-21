@@ -32,7 +32,7 @@ var app = new Vue(
     el: '#root',
     data: {
       cardFilms: [],
-      // cardFilmsMap: [],
+      cardTvSeries: [],
       filmIndex: 0,
       searchFilm: null,
     },
@@ -40,11 +40,54 @@ var app = new Vue(
 
       filterFilms: function() {
 
-
+        //sezione film
         this.cardFilms.forEach(
           (item, i) => {
 
-            item.titleAll = 'all';
+            item.titleAll = '@';
+
+            if (item.title.toLowerCase().includes(this.searchFilm.toLowerCase()) || item.titleAll.toLowerCase().includes(this.searchFilm.toLowerCase())) {
+
+              //sezione ricerca film
+              let visible = false;
+              item.visible = true; /*mi ha creato una nuova propr nell'array di oggetti cardFilms*/
+
+              //sezione stelle
+              let numeroStelle = item.vote_average;
+              let restoVoto = 0;
+
+              if (numeroStelle % 2 == 0) {
+                numeroStelle = (numeroStelle / 2);
+                item.vote_average = numeroStelle;
+              } else {
+                restoVoto = (numeroStelle % 2) / 2;
+                numeroStelle = (numeroStelle / 2) - restoVoto;
+                item.vote_average = numeroStelle;
+              }
+
+              //sezione lingua(bandiere)
+              let bandiera = '';
+              if (item.original_language == 'it') {
+                item.bandiera = 'img/ita.webp';
+              } else if (item.original_language == 'en') {
+                item.bandiera = 'img/usa.webp';
+              } else {
+                item.bandiera = 'img/all.svg';
+              }
+              // console.log(item.bandiera);
+            }
+          }
+        );
+        this.searchFilm = '';
+        console.log(this.cardFilms);
+
+
+        //sezione serie tv
+        this.cardTvSeries.forEach(
+          (item, i) => {
+
+            item.titleAll = '@';
+            item.title = item.name;
 
             if (item.title.toLowerCase().includes(this.searchFilm.toLowerCase()) || item.titleAll.toLowerCase().includes(this.searchFilm.toLowerCase())) {
 
@@ -78,9 +121,9 @@ var app = new Vue(
           }
         );
 
-      this.searchFilm = '';
+        this.searchFilm = '';
 
-        console.log(this.cardFilms);
+        console.log(this.cardTvSeries);
       },
 
       clearPage: function() {
@@ -92,7 +135,7 @@ var app = new Vue(
           .get('https://api.themoviedb.org/3/search/movie', {
             params: {
               api_key: 'bd77a6f388cd1f04e0f903f3b8a99556',
-              query: 'fantozzi',
+              query: 'eroe',
               language: 'it-IT'
             }
           })
@@ -103,6 +146,7 @@ var app = new Vue(
 
       },
     },
+
     mounted: function() {
 
       var self = this;
@@ -111,12 +155,25 @@ var app = new Vue(
         .get('https://api.themoviedb.org/3/search/movie', {
           params: {
             api_key: 'bd77a6f388cd1f04e0f903f3b8a99556',
-            query: 'fantozzi',
+            query: 'eroe',
             language: 'it-IT'
           }
         })
         .then( function(element) {
           self.cardFilms = element.data.results;
+
+      });
+
+      axios
+        .get('https://api.themoviedb.org/3/search/tv', {
+          params: {
+            api_key: 'bd77a6f388cd1f04e0f903f3b8a99556',
+            query: 'action',
+            language: 'it-IT'
+          }
+        })
+        .then( function(element) {
+          self.cardTvSeries = element.data.results;
 
       });
     },
