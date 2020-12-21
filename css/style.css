@@ -70,11 +70,15 @@ span{
 }
 button.delete_research{
   height: 30px;
-  width: 50px;
+  width: 150px;
   border: 2px solid grey;
   border-left: none;
   cursor: pointer;
   color: red;
+}
+button span{
+  color: red;
+  font-size: 15px;
 }
 .input_search{
   /* background: white; */
@@ -124,6 +128,12 @@ button.delete_research{
   background-color: rgba(0, 0, 0, 1);
   opacity: 0;
   padding: 30px 10px 0px;
+}
+.layover_container img{
+  width: 22px;
+  height: 20px;
+  margin-left: 5px;
+  vertical-align: middle;
 }
 .poster_container:hover .layover_container {
   opacity: 1;

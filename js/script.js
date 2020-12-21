@@ -40,16 +40,17 @@ var app = new Vue(
 
       filterFilms: function() {
 
+
         this.cardFilms.forEach(
           (item, i) => {
 
-            let visible = false;
-            this.cardFilms.push(visible);
+            item.titleAll = 'all';
 
-            if (item.title.toLowerCase().includes(this.searchFilm.toLowerCase())) {
+            if (item.title.toLowerCase().includes(this.searchFilm.toLowerCase()) || item.titleAll.toLowerCase().includes(this.searchFilm.toLowerCase())) {
 
               //sezione ricerca film
-              item.visible = true;
+              let visible = false;
+              item.visible = true; /*mi ha creato una nuova propr nell'array di oggetti cardFilms*/
 
               //sezione stelle
               let numeroStelle = item.vote_average;
@@ -63,12 +64,23 @@ var app = new Vue(
                 numeroStelle = (numeroStelle / 2) - restoVoto;
                 item.vote_average = numeroStelle;
               }
+
+              //sezione lingua(bandiere)
+              let bandiera = '';
+              if (item.original_language == 'it') {
+                item.bandiera = 'img/ita.webp';
+              } else if (item.original_language == 'en') {
+                item.bandiera = 'img/usa.webp';
+              } else {
+                item.bandiera = 'img/all.svg';
+              }
             }
+          }
+        );
 
-        });
-        // console.log(this.cardFilms);
+      this.searchFilm = '';
 
-        this.searchFilm = '';
+        console.log(this.cardFilms);
       },
 
       clearPage: function() {

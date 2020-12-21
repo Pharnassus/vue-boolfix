@@ -27,13 +27,15 @@
 
         <div class="input_search">
 
-          <input type="text" name="" value="" placeholder="Ricerca in query di fantozzi"
+          <input type="text" name="" value="" placeholder="Ricerca in film di fantozzi oppure in all"
                 v-model="searchFilm"
                 @keydown.enter="filterFilms">
           <button @click="filterFilms" type="button" name="button">
             <i class="fas fa-search"></i>
           </button>
           <button @click="clearPage" class="delete_research" type="button" name="button">
+            <i class="fas fa-times"></i>
+            <span>Nuova ricerca</span>
             <i class="fas fa-times"></i>
           </button>
 
@@ -56,6 +58,9 @@
                 </div>
                 <div>
                   <h4>Titolo originale: <span>{{film.original_title}}</span></h4>
+                </div>
+                <div>
+                  <h4>Lingua originale: <span><img :src="film.bandiera" alt=""></span></h4>
                 </div>
                 <div>
                   <h4>Voto:
