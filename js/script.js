@@ -136,7 +136,7 @@ var app = new Vue(
         var self = this;
 
         axios
-          .get('https://api.themoviedb.org/3/search/tv', {
+          .get('https://api.themoviedb.org/3/search/movie', {
             params: {
               api_key: 'bd77a6f388cd1f04e0f903f3b8a99556',
               query: 'marvel',
@@ -144,7 +144,7 @@ var app = new Vue(
             }
           })
           .then( function(element) {
-            self.cardTvSeries = element.data.results;
+            self.cardFilms = element.data.results;
 
         });
 
