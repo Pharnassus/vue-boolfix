@@ -88,6 +88,7 @@ var app = new Vue(
         this.cardTvSeries.forEach(
           (item, i) => {
 
+            item.image = 'https://image.tmdb.org/t/p/w220_and_h330_face';            
             item.titleAll = '@';
             item.title = item.name;
 

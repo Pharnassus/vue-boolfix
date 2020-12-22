@@ -53,8 +53,8 @@
               v-if="film.visible == true">
           <!-- <a href="#"> -->
             <div class="poster_container">
-              <img :src="film.image + film.poster_path" alt="Locandina">
-              <img src="https://cdn.telenuovo.it/contents/images/iu_5_1-1.jpeg" alt="">
+              <img v-if="film.poster_path != null" :src="film.image + film.poster_path" alt="Locandina">
+              <img v-else src="https://www.gruppoamag.it/wp-content/uploads/1517160759-2324-lavori-in-corso.jpg" alt="">
               <div class="layover_container">
                 <div>
                   <h4>Titolo: <span>{{film.title}}</span></h4>
@@ -94,7 +94,9 @@
               v-if="film.visible == true">
           <!-- <a href="#"> -->
             <div class="poster_container">
-              <img :src="'https://image.tmdb.org/t/p/w220_and_h330_face' + film.poster_path" alt="Locandina">
+              <img v-if="film.poster_path != null" :src="film.image + film.poster_path" alt="Locandina">
+              <img v-else src="https://www.gruppoamag.it/wp-content/uploads/1517160759-2324-lavori-in-corso.jpg" alt="">
+              <!-- <img :src="'https://image.tmdb.org/t/p/w220_and_h330_face' + film.poster_path" alt="Locandina"> -->
               <div class="layover_container">
                 <div>
                   <h4>Titolo: <span>{{film.title}}</span></h4>
