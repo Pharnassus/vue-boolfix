@@ -44,13 +44,13 @@ var app = new Vue(
         this.cardFilms.forEach(
           (item, i) => {
 
+            item.visible = false;
             item.image = 'https://image.tmdb.org/t/p/w220_and_h330_face';
             item.titleAll = '@';
 
             if (item.title.toLowerCase().includes(this.searchFilm.toLowerCase()) || item.titleAll.toLowerCase().includes(this.searchFilm.toLowerCase())) {
 
               //sezione ricerca film
-              let visible = false;
               item.visible = true; /*mi ha creato una nuova propr nell'array di oggetti cardFilms*/
 
               //sezione stelle
@@ -65,7 +65,6 @@ var app = new Vue(
                 numeroStelle = (numeroStelle / 2) - restoVoto;
                 item.vote_average = numeroStelle;
               }
-              console.log(item.vote_average);
 
               //sezione lingua(bandiere)
               let bandiera = '';
@@ -88,14 +87,15 @@ var app = new Vue(
         this.cardTvSeries.forEach(
           (item, i) => {
 
+            item.title = item.name;
+            item.visible = false;
             item.image = 'https://image.tmdb.org/t/p/w220_and_h330_face';
             item.titleAll = '@';
-            item.title = item.name;
+
 
             if (item.title.toLowerCase().includes(this.searchFilm.toLowerCase()) || item.titleAll.toLowerCase().includes(this.searchFilm.toLowerCase())) {
 
               //sezione ricerca telefilm
-              let visible = false;
               item.visible = true; /*mi ha creato una nuova propr nell'array di oggetti cardFilms*/
 
               //sezione stelle
