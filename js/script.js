@@ -40,7 +40,7 @@ var app = new Vue(
 
       filterFilms: function() {
 
-        //sezione film
+        //for each su film
         this.cardFilms.forEach(
           (item, i) => {
 
@@ -84,17 +84,17 @@ var app = new Vue(
         console.log(this.cardFilms);
 
 
-        //sezione serie tv
+        //for each su serie tv
         this.cardTvSeries.forEach(
           (item, i) => {
 
-            item.image = 'https://image.tmdb.org/t/p/w220_and_h330_face';            
+            item.image = 'https://image.tmdb.org/t/p/w220_and_h330_face';
             item.titleAll = '@';
             item.title = item.name;
 
             if (item.title.toLowerCase().includes(this.searchFilm.toLowerCase()) || item.titleAll.toLowerCase().includes(this.searchFilm.toLowerCase())) {
 
-              //sezione ricerca film
+              //sezione ricerca telefilm
               let visible = false;
               item.visible = true; /*mi ha creato una nuova propr nell'array di oggetti cardFilms*/
 
@@ -125,10 +125,10 @@ var app = new Vue(
         );
 
         this.searchFilm = '';
-
         console.log(this.cardTvSeries);
       },
 
+      //pulisci pagina per nuova ricerca
       clearPage: function() {
         this.cardFilms = null;
         this.cardTvSeries = null;
@@ -136,6 +136,7 @@ var app = new Vue(
 
         var self = this;
 
+        //films
         axios
           .get('https://api.themoviedb.org/3/search/movie', {
             params: {
@@ -149,6 +150,7 @@ var app = new Vue(
 
         });
 
+        //telefilms
         axios
           .get('https://api.themoviedb.org/3/search/tv', {
             params: {
@@ -169,6 +171,7 @@ var app = new Vue(
 
       var self = this;
 
+      //carica film
       axios
         .get('https://api.themoviedb.org/3/search/movie', {
           params: {
@@ -182,6 +185,7 @@ var app = new Vue(
 
       });
 
+      //carica telefim
       axios
         .get('https://api.themoviedb.org/3/search/tv', {
           params: {

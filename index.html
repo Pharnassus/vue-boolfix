@@ -48,10 +48,10 @@
 
       <main id="main_boolflix">
 
+        <!-- //sezione film -->
         <div class="card_container"
               v-for="(film, index) in cardFilms"
               v-if="film.visible == true">
-          <!-- <a href="#"> -->
             <div class="poster_container">
               <img v-if="film.poster_path != null" :src="film.image + film.poster_path" alt="Locandina">
               <img v-else src="https://www.gruppoamag.it/wp-content/uploads/1517160759-2324-lavori-in-corso.jpg" alt="">
@@ -85,18 +85,15 @@
                 </div>
               </div>
             </div>
-          <!-- </a> -->
         </div>
 
         <!-- //sezione telefilm -->
         <div class="card_container"
               v-for="(film, index) in cardTvSeries"
               v-if="film.visible == true">
-          <!-- <a href="#"> -->
             <div class="poster_container">
               <img v-if="film.poster_path != null" :src="film.image + film.poster_path" alt="Locandina">
               <img v-else src="https://www.gruppoamag.it/wp-content/uploads/1517160759-2324-lavori-in-corso.jpg" alt="">
-              <!-- <img :src="'https://image.tmdb.org/t/p/w220_and_h330_face' + film.poster_path" alt="Locandina"> -->
               <div class="layover_container">
                 <div>
                   <h4>Titolo: <span>{{film.title}}</span></h4>
@@ -127,7 +124,6 @@
                 </div>
               </div>
             </div>
-          <!-- </a> -->
         </div>
       </main>
 
