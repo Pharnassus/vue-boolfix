@@ -53,7 +53,8 @@
               v-if="film.visible == true">
           <!-- <a href="#"> -->
             <div class="poster_container">
-              <img :src="'https://image.tmdb.org/t/p/w220_and_h330_face' + film.poster_path" alt="Locandina">
+              <img :src="film.image + film.poster_path" alt="Locandina">
+              <!-- <img src="https://www.oggettifantastici.com/images/thumbs/0033379_back-to-the-future-ritorno-al-futuro-locandina-maxi-poster-76-61x91-cm_600.jpeg" alt=""> -->
               <div class="layover_container">
                 <div>
                   <h4>Titolo: <span>{{film.title}}</span></h4>

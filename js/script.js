@@ -44,6 +44,7 @@ var app = new Vue(
         this.cardFilms.forEach(
           (item, i) => {
 
+            item.image = 'https://image.tmdb.org/t/p/w220_and_h330_face';
             item.titleAll = '@';
 
             if (item.title.toLowerCase().includes(this.searchFilm.toLowerCase()) || item.titleAll.toLowerCase().includes(this.searchFilm.toLowerCase())) {
@@ -64,6 +65,7 @@ var app = new Vue(
                 numeroStelle = (numeroStelle / 2) - restoVoto;
                 item.vote_average = numeroStelle;
               }
+              console.log(item.vote_average);
 
               //sezione lingua(bandiere)
               let bandiera = '';
@@ -128,19 +130,34 @@ var app = new Vue(
 
       clearPage: function() {
         this.cardFilms = null;
+        this.cardTvSeries = null;
+
 
         var self = this;
 
         axios
-          .get('https://api.themoviedb.org/3/search/movie', {
+          .get('https://api.themoviedb.org/3/search/tv', {
             params: {
               api_key: 'bd77a6f388cd1f04e0f903f3b8a99556',
-              query: 'eroe',
+              query: 'marvel',
               language: 'it-IT'
             }
           })
           .then( function(element) {
-            self.cardFilms = element.data.results;
+            self.cardTvSeries = element.data.results;
+
+        });
+
+        axios
+          .get('https://api.themoviedb.org/3/search/tv', {
+            params: {
+              api_key: 'bd77a6f388cd1f04e0f903f3b8a99556',
+              query: 'marvel',
+              language: 'it-IT'
+            }
+          })
+          .then( function(element) {
+            self.cardTvSeries = element.data.results;
 
         });
 
@@ -155,7 +172,7 @@ var app = new Vue(
         .get('https://api.themoviedb.org/3/search/movie', {
           params: {
             api_key: 'bd77a6f388cd1f04e0f903f3b8a99556',
-            query: 'eroe',
+            query: 'marvel',
             language: 'it-IT'
           }
         })
@@ -168,7 +185,7 @@ var app = new Vue(
         .get('https://api.themoviedb.org/3/search/tv', {
           params: {
             api_key: 'bd77a6f388cd1f04e0f903f3b8a99556',
-            query: 'action',
+            query: 'marvel',
             language: 'it-IT'
           }
         })
