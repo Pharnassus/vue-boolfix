@@ -88,6 +88,7 @@
           <!-- </a> -->
         </div>
 
+        <!-- //sezione telefilm -->
         <div class="card_container"
               v-for="(film, index) in cardTvSeries"
               v-if="film.visible == true">
@@ -99,7 +100,7 @@
                   <h4>Titolo: <span>{{film.title}}</span></h4>
                 </div>
                 <div>
-                  <h4>Titolo originale: <span>{{film.original_title}}</span></h4>
+                  <h4>Titolo originale: <span>{{film.original_name}}</span></h4>
                 </div>
                 <div>
                   <h4>Lingua originale: <span><img :src="film.bandiera" alt=""></span></h4>
