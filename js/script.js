@@ -79,7 +79,7 @@ var app = new Vue(
             }
           }
         );
-        this.searchFilm = '';
+        // this.searchFilm = '';
         console.log(this.cardFilms);
 
 
