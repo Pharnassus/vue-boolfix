@@ -27,16 +27,14 @@
 
         <div class="input_search">
 
-          <input type="text" name="" value="" placeholder="Ricerca in eroe oppure @ per all"
+          <button @click="clearPage" class="delete_research" type="button" name="button">
+            <i class="fas fa-times"></i>
+          </button>
+          <input type="text" name="" value="" placeholder="Ricerca in Marvel oppure @ per all"
                 v-model="searchFilm"
                 @keydown.enter="filterFilms">
           <button @click="filterFilms" type="button" name="button">
             <i class="fas fa-search"></i>
-          </button>
-          <button @click="clearPage" class="delete_research" type="button" name="button">
-            <i class="fas fa-times"></i>
-            <span>Nuova ricerca</span>
-            <i class="fas fa-times"></i>
           </button>
 
         </div>
