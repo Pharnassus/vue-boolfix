@@ -22,7 +22,8 @@
       <header id="header_boolflix">
 
         <div class="logo">
-          <h1>BOOLFLIX</h1>
+          <img src="img/logo.png" alt="logo immagine">
+          <img class="logo_smartphone" src="img/logo-min.png" alt="logo">
         </div>
 
         <div class="input_search">
@@ -30,7 +31,7 @@
           <button @click="clearPage" class="delete_research" type="button" name="button">
             <i class="fas fa-times"></i>
           </button>
-          <input type="text" name="" value="" placeholder="Ricerca in Marvel oppure @ per all"
+          <input type="text" name="" value="" placeholder="Ricerca in Marvel"
                 v-model="searchFilm"
                 @keydown.enter="filterFilms">
           <button @click="filterFilms" type="button" name="button">

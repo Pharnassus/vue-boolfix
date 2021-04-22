@@ -5,7 +5,11 @@
   font-family: 'Lato', sans-serif;
 }
 body{
-  background: #434343;
+  background-image: url("../img/netflix2.png");
+  background-size: cover;
+  height: 100vh;
+  overflow-y: sroll;
+  background-color: black;
 }
 h1{
   color: red;
@@ -67,6 +71,12 @@ span{
   align-items: center;
   width: 50%;
   height: 50px;
+}
+.logo img{
+  max-width: 176px;
+}
+.logo .logo_smartphone{
+  display: none;
 }
 button.delete_research{
   width: 50px;
@@ -140,4 +150,43 @@ button.delete_research{
   opacity: 1;
   cursor: pointer;
   overflow-y: scroll;
+}
+
+
+/*
+===============
+MOBILE
+===============
+*/
+
+@media screen and (max-width: 850px) {
+  
+  #header_boolflix{
+    padding: 0;
+  }
+
+  .logo{
+    width: 27%;
+  }
+  .logo img{
+    display: none;
+  }
+  .logo .logo_smartphone{
+    display: block;
+    max-width: 100px;    
+  }
+
+  .input_search{
+    width: 73%;
+  }
+
+  main{
+    display: flex;
+    justify-content: center;
+  }
+
+  .card_container {    
+    padding: 0 0 20px ;
+  }
+
 }
